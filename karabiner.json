@@ -9603,6 +9603,7 @@
                     },
                     {
                         "description": "R8: launcher-mode",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -10258,7 +10259,7 @@
                         ]
                     },
                     {
-                        "description": "R12: r_cmd to MEH",
+                        "description": "R12: r_cmd to MEH, MEH + comma if tapped (used in combo with leader key app)",
                         "manipulators": [
                             {
                                 "from": {
@@ -10271,6 +10272,10 @@
                                         "modifiers": ["left_control", "left_option"]
                                     }
                                 ],
+                                "to_if_alone": [{
+                                    "key_code": "comma",
+                                    "modifiers": ["left_control", "left_option","left_shift"]
+                                }],
                                 "type": "basic"
                             }
                         ]
@@ -10310,6 +10315,7 @@
                     },
                     {
                         "description": "R16: MEH + space for escape",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
