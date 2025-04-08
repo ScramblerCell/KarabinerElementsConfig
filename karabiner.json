@@ -9619,7 +9619,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "r" }
                                     ],
                                     "simultaneous_options": {
@@ -9664,7 +9664,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "a" }
                                     ],
                                     "simultaneous_options": {
@@ -9709,7 +9709,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "m" }
                                     ],
                                     "simultaneous_options": {
@@ -9757,7 +9757,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "v" }
                                     ],
                                     "simultaneous_options": {
@@ -9802,7 +9802,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "k" }
                                     ],
                                     "simultaneous_options": {
@@ -9847,7 +9847,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "b" }
                                     ],
                                     "simultaneous_options": {
@@ -9892,7 +9892,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "h" }
                                     ],
                                     "simultaneous_options": {
@@ -9937,7 +9937,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "p" }
                                     ],
                                     "simultaneous_options": {
@@ -9982,7 +9982,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "t" }
                                     ],
                                     "simultaneous_options": {
@@ -10027,7 +10027,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "f" }
                                     ],
                                     "simultaneous_options": {
@@ -10072,7 +10072,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "g" }
                                     ],
                                     "simultaneous_options": {
@@ -10117,7 +10117,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "s" }
                                     ],
                                     "simultaneous_options": {
@@ -10162,7 +10162,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "s" }
                                     ],
                                     "simultaneous_options": {
@@ -10568,7 +10568,7 @@
                         ]
                     },
                     {
-                        "description": "forwardslash Launcher",
+                        "description": "Tab Launcher",
                         "manipulators": [
                             {
                                 "conditions": [
