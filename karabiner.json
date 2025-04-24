@@ -4485,7 +4485,158 @@
                 "parameters": { "basic.to_if_held_down_threshold_milliseconds": 130 },
                 "rules": [
                     {
-                        "description": "HYPER + E:Emoji Popup",
+                        "description": "R9: [A] + space:delete word",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["left_command", "left_control", "left_option", "left_shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": ["left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "r_option to ORION [A]",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_option",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_command",
+                                        "modifiers": ["left_control", "left_shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "tab to CALIX [C], tab if tapped",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_command",
+                                        "modifiers": ["left_option", "left_shift"]
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "tab" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "l_cmd to AEGIS [A]",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_command",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_command",
+                                        "modifiers": ["left_control", "left_option", "left_shift"]
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "delete_or_backspace" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "space to MITHRA [M], space if tapped",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_option",
+                                        "modifiers": ["left_control", "left_shift"]
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "spacebar" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "r_cmd to STRATOS [S], [S] + → if tapped (used in combo with leader key app)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control",
+                                        "modifiers": ["left_command", "left_option"]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": ["left_control", "left_option", "left_command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "caps_lock to left_command, esc if tapped",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_command" }],
+                                "to_if_alone": [{ "key_code": "escape" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "tab to MEH,tab  if tapped",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_option",
+                                        "modifiers": ["left_control", "left_shift"]
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "tab" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "[A] + E:Emoji Popup",
                         "manipulators": [
                             {
                                 "from": {
@@ -4517,70 +4668,6 @@
                                         "modifiers": []
                                     }
                                 ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "R0: Quit application by pressing command-q twice",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "command-q",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "q",
-                                    "modifiers": {
-                                        "mandatory": ["command"],
-                                        "optional": ["caps_lock"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "q",
-                                        "modifiers": ["left_command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "q",
-                                    "modifiers": {
-                                        "mandatory": ["command"],
-                                        "optional": ["caps_lock"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "command-q",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "set_variable": {
-                                                "name": "command-q",
-                                                "value": 0
-                                            }
-                                        }
-                                    ],
-                                    "to_if_invoked": [
-                                        {
-                                            "set_variable": {
-                                                "name": "command-q",
-                                                "value": 0
-                                            }
-                                        }
-                                    ]
-                                },
                                 "type": "basic"
                             }
                         ]
@@ -9602,618 +9689,6 @@
                         ]
                     },
                     {
-                        "description": "R8: launcher-mode",
-                        "enabled": false,
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "r" },
-                                "to": [{ "shell_command": "open -a 'Activity Monitor.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "tab" },
-                                        { "key_code": "r" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'Activity Monitor.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "a" },
-                                "to": [{ "shell_command": "open -a 'Arc.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "tab" },
-                                        { "key_code": "a" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'Arc.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "m" },
-                                "to": [{ "shell_command": "open -a 'messages.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "tab" },
-                                        { "key_code": "m" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'messages.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "v",
-                                    "modifiers": { "mandatory": ["left_shift"] }
-                                },
-                                "to": [{ "shell_command": "open -a 'Visual Studio Code.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "tab" },
-                                        { "key_code": "v" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'Visual Studio Code.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "k" },
-                                "to": [{ "shell_command": "open -a 'Karabiner-Elements.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "tab" },
-                                        { "key_code": "k" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'Karabiner-Elements.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "b" },
-                                "to": [{ "shell_command": "open -a 'Bitwarden.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "tab" },
-                                        { "key_code": "b" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'Bitwarden.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "h" },
-                                "to": [{ "shell_command": "open -a 'Hand Mirror.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "tab" },
-                                        { "key_code": "h" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'Hand Mirror.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "p" },
-                                "to": [{ "shell_command": "open -a 'System Settings.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "tab" },
-                                        { "key_code": "p" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'System Settings.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "t" },
-                                "to": [{ "shell_command": "open -a 'terminal.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "tab" },
-                                        { "key_code": "t" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'terminal.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "f" },
-                                "to": [{ "shell_command": "open -a 'Finder.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "tab" },
-                                        { "key_code": "f" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'Finder.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "g" },
-                                "to": [{ "shell_command": "open -a 'Goodnotes.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "tab" },
-                                        { "key_code": "g" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'Goodnotes.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "s" },
-                                "to": [{ "shell_command": "open -a 'Shottr.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "tab" },
-                                        { "key_code": "s" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'Shottr.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "s" },
-                                "to": [{ "shell_command": "open -a 'Shottr.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "tab" },
-                                        { "key_code": "s" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'Shottr.app'" }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "R9: HYPER + space:delete word",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["left_command", "left_control", "left_option", "left_shift"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "delete_or_backspace",
-                                        "modifiers": ["left_option"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "R10: Toggle caps_lock by pressing l_shift then r_shift",
                         "manipulators": [
                             {
@@ -10241,80 +9716,7 @@
                         ]
                     },
                     {
-                        "description": "R11: l_cmd to HYPER",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_command",
-                                        "modifiers": ["left_control", "left_option", "left_shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "R12: r_cmd to MEH, MEH + comma if tapped (used in combo with leader key app)",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "right_command",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_shift",
-                                        "modifiers": ["left_control", "left_option"]
-                                    }
-                                ],
-                                "to_if_alone": [{
-                                    "key_code": "comma",
-                                    "modifiers": ["left_control", "left_option","left_shift"]
-                                }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "caps_lock to left_command, esc if tapped",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "left_command" }],
-                                "to_if_alone": [{ "key_code": "escape" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "R14: HYPER + Tab :AltTab",
-                        "enabled": false,
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "tab",
-                                    "modifiers": { "mandatory": ["left_command", "left_control", "left_option", "left_shift"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "tab",
-                                        "modifiers": ["left_command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "R16: MEH + space for escape",
+                        "description": "R16: [C] + space for escape",
                         "enabled": false,
                         "manipulators": [
                             {

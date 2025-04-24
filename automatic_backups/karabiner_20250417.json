@@ -4485,6 +4485,38 @@
                 "parameters": { "basic.to_if_held_down_threshold_milliseconds": 130 },
                 "rules": [
                     {
+                        "description": "tab to left_option,tab  if tapped",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_option" }],
+                                "to_if_alone": [{ "key_code": "tab" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "HYPER + E:Emoji Popup",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": { "mandatory": ["left_command", "left_control", "left_option", "left_shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": ["left_control", "left_command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "R15: HYPER + B :Dictate",
                         "enabled": false,
                         "manipulators": [
@@ -9585,6 +9617,7 @@
                     },
                     {
                         "description": "R8: launcher-mode",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
@@ -9594,60 +9627,15 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "n" },
-                                "to": [{ "shell_command": "open -a 'notion.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "slash" },
-                                        { "key_code": "n" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'notion.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "v" },
+                                "from": { "key_code": "r" },
                                 "to": [{ "shell_command": "open -a 'Activity Monitor.app'" }],
                                 "type": "basic"
                             },
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
-                                        { "key_code": "v" }
+                                        { "key_code": "tab" },
+                                        { "key_code": "r" }
                                     ],
                                     "simultaneous_options": {
                                         "detect_key_down_uninterruptedly": true,
@@ -9691,7 +9679,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "a" }
                                     ],
                                     "simultaneous_options": {
@@ -9736,7 +9724,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "m" }
                                     ],
                                     "simultaneous_options": {
@@ -9784,7 +9772,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "v" }
                                     ],
                                     "simultaneous_options": {
@@ -9829,7 +9817,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "k" }
                                     ],
                                     "simultaneous_options": {
@@ -9867,51 +9855,6 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "e" },
-                                "to": [{ "shell_command": "open -a 'Karabiner-EventViewer.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "slash" },
-                                        { "key_code": "e" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'Karabiner-EventViewer.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": { "key_code": "b" },
                                 "to": [{ "shell_command": "open -a 'Bitwarden.app'" }],
                                 "type": "basic"
@@ -9919,7 +9862,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "b" }
                                     ],
                                     "simultaneous_options": {
@@ -9957,51 +9900,6 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "c" },
-                                "to": [{ "shell_command": "open -a 'Clock.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "simultaneous": [
-                                        { "key_code": "slash" },
-                                        { "key_code": "c" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "detect_key_down_uninterruptedly": true,
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "key_up_when": "any",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher-mode",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher-mode",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'Clock.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher-mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": { "key_code": "h" },
                                 "to": [{ "shell_command": "open -a 'Hand Mirror.app'" }],
                                 "type": "basic"
@@ -10009,7 +9907,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "h" }
                                     ],
                                     "simultaneous_options": {
@@ -10047,15 +9945,15 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "s" },
+                                "from": { "key_code": "p" },
                                 "to": [{ "shell_command": "open -a 'System Settings.app'" }],
                                 "type": "basic"
                             },
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
-                                        { "key_code": "s" }
+                                        { "key_code": "tab" },
+                                        { "key_code": "p" }
                                     ],
                                     "simultaneous_options": {
                                         "detect_key_down_uninterruptedly": true,
@@ -10099,7 +9997,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "t" }
                                     ],
                                     "simultaneous_options": {
@@ -10144,7 +10042,7 @@
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "f" }
                                     ],
                                     "simultaneous_options": {
@@ -10183,13 +10081,13 @@
                                     }
                                 ],
                                 "from": { "key_code": "g" },
-                                "to": [{ "shell_command": "open -a 'GitHub Desktop.app'" }],
+                                "to": [{ "shell_command": "open -a 'Goodnotes.app'" }],
                                 "type": "basic"
                             },
                             {
                                 "from": {
                                     "simultaneous": [
-                                        { "key_code": "slash" },
+                                        { "key_code": "tab" },
                                         { "key_code": "g" }
                                     ],
                                     "simultaneous_options": {
@@ -10215,7 +10113,97 @@
                                             "value": 1
                                         }
                                     },
-                                    { "shell_command": "open -a 'GitHub Desktop.app'" }
+                                    { "shell_command": "open -a 'Goodnotes.app'" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "launcher-mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": { "key_code": "s" },
+                                "to": [{ "shell_command": "open -a 'Shottr.app'" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "simultaneous": [
+                                        { "key_code": "tab" },
+                                        { "key_code": "s" }
+                                    ],
+                                    "simultaneous_options": {
+                                        "detect_key_down_uninterruptedly": true,
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse",
+                                        "key_up_when": "any",
+                                        "to_after_key_up": [
+                                            {
+                                                "set_variable": {
+                                                    "name": "launcher-mode",
+                                                    "value": 0
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "launcher-mode",
+                                            "value": 1
+                                        }
+                                    },
+                                    { "shell_command": "open -a 'Shottr.app'" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "launcher-mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": { "key_code": "s" },
+                                "to": [{ "shell_command": "open -a 'Shottr.app'" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "simultaneous": [
+                                        { "key_code": "tab" },
+                                        { "key_code": "s" }
+                                    ],
+                                    "simultaneous_options": {
+                                        "detect_key_down_uninterruptedly": true,
+                                        "key_down_order": "strict",
+                                        "key_up_order": "strict_inverse",
+                                        "key_up_when": "any",
+                                        "to_after_key_up": [
+                                            {
+                                                "set_variable": {
+                                                    "name": "launcher-mode",
+                                                    "value": 0
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "parameters": { "basic.simultaneous_threshold_milliseconds": 250 },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "launcher-mode",
+                                            "value": 1
+                                        }
+                                    },
+                                    { "shell_command": "open -a 'Shottr.app'" }
                                 ],
                                 "type": "basic"
                             }
@@ -10280,12 +10268,13 @@
                                         "modifiers": ["left_control", "left_option", "left_shift"]
                                     }
                                 ],
+                                "to_if_alone": [{ "key_code": "delete_or_backspace" }],
                                 "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "R12: r_cmd to MEH",
+                        "description": "R12: r_cmd to MEH, MEH + comma if tapped (used in combo with leader key app)",
                         "manipulators": [
                             {
                                 "from": {
@@ -10298,12 +10287,18 @@
                                         "modifiers": ["left_control", "left_option"]
                                     }
                                 ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "comma",
+                                        "modifiers": ["left_control", "left_option", "left_shift"]
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "R13: caps_lock to left_command",
+                        "description": "caps_lock to left_command, esc if tapped",
                         "manipulators": [
                             {
                                 "from": {
@@ -10311,6 +10306,7 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "left_command" }],
+                                "to_if_alone": [{ "key_code": "escape" }],
                                 "type": "basic"
                             }
                         ]
@@ -10336,6 +10332,7 @@
                     },
                     {
                         "description": "R16: MEH + space for escape",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -10594,55 +10591,8 @@
                         ]
                     },
                     {
-                        "description": "forwardslash Launcher",
+                        "description": "Tab Launcher",
                         "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher_mode_v4",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "n",
-                                    "modifiers": { "mandatory": [] }
-                                },
-                                "to": [{ "shell_command": "open -a 'notion.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "modifiers": { "mandatory": [] },
-                                    "simultaneous": [
-                                        { "key_code": "slash" },
-                                        { "key_code": "n" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher_mode_v4",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 600 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher_mode_v4",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'notion.app'" }
-                                ],
-                                "type": "basic"
-                            },
                             {
                                 "conditions": [
                                     {
@@ -10699,10 +10649,10 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "s",
+                                    "key_code": "1",
                                     "modifiers": { "mandatory": [] }
                                 },
-                                "to": [{ "shell_command": "open -a 'spotify.app'" }],
+                                "to": [{ "shell_command": "open -a 'Spotify.app'" }],
                                 "type": "basic"
                             },
                             {
@@ -10710,7 +10660,7 @@
                                     "modifiers": { "mandatory": [] },
                                     "simultaneous": [
                                         { "key_code": "slash" },
-                                        { "key_code": "s" }
+                                        { "key_code": "1" }
                                     ],
                                     "simultaneous_options": {
                                         "key_down_order": "strict",
@@ -10733,7 +10683,7 @@
                                             "value": 1
                                         }
                                     },
-                                    { "shell_command": "open -a 'spotify.app'" }
+                                    { "shell_command": "open -a 'Spotify.app'" }
                                 ],
                                 "type": "basic"
                             },
@@ -10781,53 +10731,6 @@
                                         }
                                     },
                                     { "shell_command": "open -a 'Arc.app'" }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "launcher_mode_v4",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "v",
-                                    "modifiers": { "mandatory": [] }
-                                },
-                                "to": [{ "shell_command": "open -a 'Activity Monitor.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "modifiers": { "mandatory": [] },
-                                    "simultaneous": [
-                                        { "key_code": "slash" },
-                                        { "key_code": "v" }
-                                    ],
-                                    "simultaneous_options": {
-                                        "key_down_order": "strict",
-                                        "key_up_order": "strict_inverse",
-                                        "to_after_key_up": [
-                                            {
-                                                "set_variable": {
-                                                    "name": "launcher_mode_v4",
-                                                    "value": 0
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 600 },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "launcher_mode_v4",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "shell_command": "open -a 'Activity Monitor.app'" }
                                 ],
                                 "type": "basic"
                             },
